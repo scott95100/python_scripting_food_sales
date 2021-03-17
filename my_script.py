@@ -44,9 +44,23 @@ def append_txt():
         f.write('3/17/2021')
         print('done')
 
+def region_food_sales():
+    all_regions = []
+    with open('sampledatafoodsales.csv') as f:
+        data = f.readlines()
+        for region_sale in data:
+            split_region_sale = region_sale.split(',')
+            region = split_region_sale[0]
+            all_regions.append(region)
+    print(all_regions)
+    with open('regions.txt', 'w') as f:
+        for data in all_regions:
+            f.write(region)
+            f.write('\n')
 
 if __name__ == '__main__':
     # read_only()
     # write_only()
     # read_food_sales()
-    append_txt()
+    # append_txt()
+    region_food_sales()
